@@ -1,0 +1,31 @@
+﻿@model Amine_Abdou.Models.Maladie
+
+@{
+    ViewData["Title"] = "Détails de la Maladie";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Détails de la Maladie</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-4">Nom</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Nom)</dd>
+                        <dt class="col-sm-4">Description</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Description)</dd>
+                    </dl>
+                    <div class="text-center">
+                        <a asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-warning">
+                            <i class="fas fa-edit"></i> Modifier
+                        </a>
+                        <a asp-action="Index" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left"></i> Retour à la liste
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

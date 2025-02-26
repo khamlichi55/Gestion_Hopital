@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "Accueil";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Bienvenue dans le système de gestion d'Hopital</h1>
+    <p class="text-center">Gérez facilement vos médecins, patients et maladies avec les options ci-dessous.</p>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="row mt-4">
+            <!-- Médecins -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-center shadow-lg border-0">
+                    <div class="card-header bg-primary text-white">
+                        <h3>Médecins</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Consultez, ajoutez, modifiez ou supprimez les informations des médecins.</p>
+                        <a href="@Url.Action("Index", "Medecins")" class="btn btn-primary btn-lg">Gérer les Médecins</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Patients -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-center shadow-lg border-0">
+                    <div class="card-header bg-success text-white">
+                        <h3>Patients</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Consultez, ajoutez, modifiez ou supprimez les informations des patients.</p>
+                        <a href="@Url.Action("Index", "Patients")" class="btn btn-success btn-lg">Gérer les Patients</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Maladies -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-center shadow-lg border-0">
+                    <div class="card-header bg-danger text-white">
+                        <h3>Maladies</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Consultez, ajoutez, modifiez ou supprimez les informations des maladies.</p>
+                        <a href="@Url.Action("Index", "Maladies")" class="btn btn-danger btn-lg">Gérer les Maladies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row mt-4">
+            <div class="col-md-12 text-center">
+                <div class="alert alert-info">
+                    <h4>Vous devez être connecté pour accéder aux fonctionnalités.</h4>
+                    <p>
+                        <a class="btn btn-primary btn-lg" asp-area="Identity" asp-page="/Account/Login">Connexion</a>
+                        <a class="btn btn-success btn-lg" asp-area="Identity" asp-page="/Account/Register">Inscription</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<style>
+    .card {
+        border-radius: 15px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .shadow-lg {
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-lg {
+        padding: 0.75rem 1.5rem;
+        font-size: 1.25rem;
+    }
+
+    .alert-info {
+        background-color: #d1ecf1;
+        border-color: #bee5eb;
+        color: #0c5460;
+        padding: 1.5rem;
+        border-radius: 10px;
+    }
+
+    .alert-info h4 {
+        margin-bottom: 1rem;
+    }
+
+    .alert-info .btn {
+        margin: 0.5rem;
+    }
+</style>

@@ -1,0 +1,55 @@
+﻿@model Amine_Abdou.Models.Medecin
+
+@{
+    ViewData["Title"] = "Modifier un Médecin";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Modifier un Médecin</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="ID" />
+                        <div class="form-group">
+                            <label asp-for="Nom" class="control-label font-weight-bold"></label>
+                            <input asp-for="Nom" class="form-control" placeholder="Nom du médecin" />
+                            <span asp-validation-for="Nom" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Grade" class="control-label font-weight-bold"></label>
+                            <input asp-for="Grade" class="form-control" placeholder="Grade du médecin" />
+                            <span asp-validation-for="Grade" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Tel" class="control-label font-weight-bold"></label>
+                            <input asp-for="Tel" class="form-control" placeholder="Numéro de téléphone" />
+                            <span asp-validation-for="Tel" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Specialite" class="control-label font-weight-bold"></label>
+                            <input asp-for="Specialite" class="form-control" placeholder="Spécialité du médecin" />
+                            <span asp-validation-for="Specialite" class="text-danger"></span>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-warning">
+                                <i class="fas fa-save"></i> Enregistrer
+                            </button>
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left"></i> Retour à la liste
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
