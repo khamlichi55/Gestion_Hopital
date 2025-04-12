@@ -14,8 +14,5 @@ Projet ASP.NET Core MVC pour la gestion des médecins, patients et maladies.
 - SQL Server
 - Bootstrap
 
-## Commandes EF :
-- Add-Migration AddMaladie
-- Update-Database
 
 Projet développé par Abdou Amine.
